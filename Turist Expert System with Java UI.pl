@@ -1,5 +1,4 @@
 %To Start the system type start.
-% Name : - Chamara M. Dodandeniya
 
 :- use_module(library(jpl)).
 	
@@ -12,39 +11,10 @@
     hypothesis(nency) :-nency, !.
 	hypothesis("IDK").
 
-    oval_iris :- verify("He has oval iris y/n) ?").
-    nose :- verify("He has nose y/n) ?").
-    wear_spacesuite :- verify("He wear spacesuite y/n) ?").
-    wear_sandals :- verify("He wear sandals y/n) ?").
-    wear_hat :- verify("He wear hat y/n) ?").
-    bag :- verify("He has bag y/n) ?").
-	piercing :- verify("He has piercing y/n) ?").
-    two_legs :- verify("He has 2 legs (y/n) ?").
-    four_legs :- verify("He has 4 legs (y/n) ?").
-    two_arms :- verify("He has 2 arms y/n) ?").
-    no_arms :- verify("He has 0 arms y/n) ?").
-    four_eyes :- verify("He has 4 eyes y/n) ?").
-    two_eyes :- verify("He has 2 eyes y/n) ?").
-    wear_watch :- verify("(e wear a watch y/n) ?").
-
-
-	color_blind :- four_eyes,
-						oval_iris.
-
-	walker :- two_legs,
-					two_arms.
-					
-	runner :- four_legs,
-					no_arms.
-
-	jumper :- walker,
-				verify("He has tail? y/n ? ").
-
-	air_breather :- wear_spacesuite, 
-						nose.
-
+	
 	lonnie :- walker,
 			color_blind,
+			blue_skin,
 			wear_sandals.
 	
 	jora :- air_breather,
@@ -59,10 +29,40 @@
 			air_breather,
 			bag.
 
-
 	nency :- runner,
 			color_blind,
 			piercing.	
+			
+			
+	color_blind :- four_eyes,
+					oval_iris.
+
+	walker :- two_legs,
+				two_arms.
+					
+	runner :- four_legs,
+					no_arms.
+
+	jumper :- walker,
+				verify("He has tail? y/n ? ").
+
+	air_breather :- wear_spacesuite, 
+						nose.
+	blue_skin :- verify("He has blue skin y/n ? ").
+    oval_iris :- verify("He has oval iris y/n) ?").
+    nose :- verify("He has nose y/n) ?").
+    wear_spacesuite :- verify("He wear spacesuite y/n) ?").
+    wear_sandals :- verify("He wear sandals y/n) ?").
+    wear_hat :- verify("He wear hat y/n) ?").
+    bag :- verify("He has bag y/n) ?").
+	piercing :- verify("He has piercing y/n) ?").
+    two_legs :- verify("He has 2 legs (y/n) ?").
+    four_legs :- verify("He has 4 legs (y/n) ?").
+    two_arms :- verify("He has 2 arms y/n) ?").
+    no_arms :- verify("He has 0 arms y/n) ?").	
+    four_eyes :- verify("He has 4 eyes y/n) ?").
+    two_eyes :- verify("He has 2 eyes y/n) ?").
+    wear_watch :- verify("(e wear a watch y/n) ?").
 
 
 
@@ -95,9 +95,9 @@ undo.
 
 
 pt :- 
-		hypothesis(Turist),
-		interface3(' ','Your turist probably is - ',Turist,'.'),
-		write(' '),write('Your turist probably is - '),write(Turist),write('.'),undo,end.
+		hypothesis(Tourist),
+		interface3(' ','Your tourist probably is - ',Tourist,'.'),
+		write(' '),write('Your tourist probably is - '),write(Tourist),write('.'),undo,end.
 
 end :-
 		write('End'),nl.
@@ -106,7 +106,7 @@ interface(X,Y,Z) :-
 	atom_concat(Y,X, FAtom),
 	atom_concat(FAtom,Z,FinalAtom),
 	jpl_new('javax.swing.JFrame', ['Expert System'], F),
-	jpl_new('javax.swing.JLabel',['--- Turist detect system ---'],LBL),
+	jpl_new('javax.swing.JLabel',['--- Tourist detect system ---'],LBL),
 	jpl_new('javax.swing.JPanel',[],Pan),
 	jpl_call(Pan,add,[LBL],_),
 	jpl_call(F,add,[Pan],_),
@@ -129,7 +129,7 @@ interface3(P,W1,D,W2) :-
 	atom_concat(A,D,B),
 	atom_concat(B,W2,W3),
 	jpl_new('javax.swing.JFrame', ['Expert System'], F),
-	jpl_new('javax.swing.JLabel',['--- Turist detect system ---'],LBL),
+	jpl_new('javax.swing.JLabel',['--- Tourist detect system ---'],LBL),
 	jpl_new('javax.swing.JPanel',[],Pan),
 	jpl_call(Pan,add,[LBL],_),
 	jpl_call(F,add,[Pan],_),
@@ -145,4 +145,4 @@ interface3(P,W1,D,W2) :-
 		;	write("")
 	).
 	
-help :- write("To start the expert system please type 'start.' and press Enter key").
+help :- write("type 'start.' ").
